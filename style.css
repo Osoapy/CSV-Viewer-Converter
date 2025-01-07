@@ -31,6 +31,12 @@ main {
   display: flex;
   gap: 20px;
   margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.editor {
+  max-width: 45vw;
 }
 
 .editor-container {
