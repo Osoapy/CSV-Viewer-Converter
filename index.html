@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Viewer & Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/6195/6195711.png" type="image/png"> <!-- CSV Icon -->
+</head>
+<body>
+    <header>
+        <h1>CSV Viewer & Converter</h1>
+        <p>Easily convert and clean your CSV files.</p>
+    </header>
+
+    <main>
+        <div class="editors">
+            <div class="editor-container">
+                <h2>Input</h2>
+                <div class="editor" id="input-editor"></div>
+            </div>
+            <div class="editor-container">
+                <h2>Output</h2>
+                <div class="editor" id="output-editor"></div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button onclick="bringToInput()">
+                <i class="fas fa-arrow-right-arrow-left"></i> Bring to Input
+            </button>
+            <button onclick="convertTabsToCommas()">
+                <i class="fas fa-table"></i> Tabs to Commas
+            </button>
+            <button onclick="convertCommasToComma()">
+                <i class="fas fa-broom"></i> Clean Extra Commas
+            </button>
+            <button onclick="excludeLines()">
+                <i class="fas fa-filter"></i> Exclude Lines
+            </button>
+            <button onclick="convertToSQLInsert()">
+                <i class="fas fa-database"></i> SQL Insert
+            </button>
+            <button onclick="copyToClipboard()">
+                <i class="fas fa-copy"></i> Copy
+            </button>
+            <button onclick="clearText()">
+                <i class="fas fa-eraser"></i> Clear
+            </button>
+        </div>        
+    </main>
+
+    <footer>
+        <p>&copy; João Gabriel Vieira Silva. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/clike/clike.min.js"></script>
+    <script>
+        const inputEditor = CodeMirror(document.getElementById('input-editor'), {
+            value: "",
+            mode: "text/plain",
+            lineNumbers: true,
+            theme: "dracula",
+            lineWrapping: true
+        });
+
+        const outputEditor = CodeMirror(document.getElementById('output-editor'), {
+            value: "",
+            mode: "text/plain",
+            lineNumbers: true,
+            theme: "dracula",
+            lineWrapping: true
+        });
+    </script>
+    <script src="./functions/clear.js"></script>
+    <script src="./functions/bringToInput.js"></script>
+    <script src="./functions/commasToComma.js"></script>
+    <script src="./functions/tabsToCommas.js"></script>
+    <script src="./functions/convertToSQLInsert.js"></script>
+    <script src="./functions/excludeLines.js"></script>
+    <script src="./functions/copy.js"></script>
+</body>
+</html>
